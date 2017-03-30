@@ -3,8 +3,6 @@
 import re
 import sys
 
-snappy_ver = "v1.5"
-
 html_header_string = """\
 <html>
 <head>
@@ -59,7 +57,7 @@ UL {
 
 class GenAssemblyIndex(object):
     indexfile = "docs/assembly/index.html"
-    markdownfile = "wiki/%s-Assembly.md" % snappy_ver
+    markdownfile = "wiki/v1.1-Assembly.md"
     sourcefile = "full_assembly.scad"
     modules = []
     modinfo = {}
@@ -103,12 +101,6 @@ class GenAssemblyIndex(object):
 
                 f.write('</li>\n')
 
-            f.write('<li class="section">\n')
-            f.write('<h2>%s</h2>\n' % "RAMPS Wiring")
-            f.write('<div class="desc">Heres a diagram of what needs to be connected where on a RAMPS 1.4 controller board.</div>\n')
-            f.write('<img src="RAMPS_Wiring_For_Snappy.png">')
-            f.write('</li>\n')
-
             f.write('</ol>\n')
             f.write('</body>\n')
             f.write('</html>\n')
@@ -118,14 +110,13 @@ class GenAssemblyIndex(object):
             f.write("# Snappy RepRap Assembly Instructions\n\n")
 
             for mod_eng in self.modules:
-                f.write('## %s\n\n' % mod_eng)
+                f.write('##%s\n\n' % mod_eng)
 
                 stepcnt = len(self.modinfo[mod_eng])
                 for stepinfo in self.modinfo[mod_eng]:
                     stepinfo['base'] = \
                         'https://raw.githubusercontent.com/' \
-                        'revarbat/snappy-reprap/%s/docs/assembly/' % \
-                        snappy_ver
+                        'revarbat/snappy-reprap/master/docs/assembly/'
 
                     if stepcnt > 1:
                         f.write('### Step {step}\n\n'.format(**stepinfo))
@@ -140,11 +131,6 @@ class GenAssemblyIndex(object):
                         '({base}{module}_after.png)\n\n'
                         .format(**stepinfo)
                     )
-            f.write('## %s\n\n' % "RAMPS Wiring")
-            f.write('Heres a diagram of what needs to be connected where on a RAMPS 1.4 controller board.\n\n')
-            f.write('[![RAMPS 1.4 Wiring Diagram](v1.5-RAMPS_Wiring_For_Snappy.png)](v1.5-RAMPS_Wiring_For_Snappy.png)\n')
-            f.write('Click to enlarge.\n\n')
-
 
     def process_module(self, module, desc):
         print("module: %s" % module)
