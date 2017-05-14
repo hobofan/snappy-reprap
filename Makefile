@@ -1,4 +1,4 @@
-OPENSCAD=/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD
+OPENSCAD=openscad
 CONVERT=convert
 
 PARTFILES=$(sort $(wildcard *_parts.scad))

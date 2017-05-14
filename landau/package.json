@@ -1,0 +1,19 @@
+{
+  "name": "snappy-reprap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/revarbat/snappy-reprap.git",
+  "author": "Maximilian Goisser <goisser94@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@jscad/scad-api": "^0.2.1",
+    "@jscad/stl-serializer": "^0.0.2",
+    "@landaujs/landau": "^1.0.7",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-jsx": "^2.0.0",
+    "eslint": "^3.19.0",
+    "fast-boot": "^1.0.7"
+  }
+}
