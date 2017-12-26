@@ -5,15 +5,22 @@
   "repository": "https://github.com/revarbat/snappy-reprap.git",
   "author": "Maximilian Goisser <goisser94@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node_modules/.bin/babel-node node_modules/@landaujs/landau-packager/index.js"
+  },
   "dependencies": {
     "@jscad/scad-api": "^0.2.1",
     "@jscad/stl-serializer": "^0.0.2",
-    "@landaujs/landau": "^1.0.7",
+    "@landaujs/landau": "0.1.0",
+    "@landaujs/landau-export-stl": "file:/Users/hobofan/landau/landau-export-stl",
+    "@landaujs/landau-packager": "0.1.0",
     "babel": "^6.23.0",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-jsx": "^2.0.0",
+    "babel-preset-es2015": "^6.24.1",
     "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1",
     "fast-boot": "^1.0.7"
   }
 }

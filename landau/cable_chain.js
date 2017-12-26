@@ -1,6 +1,6 @@
 const Landau = require('@landaujs/landau');
 const {
-  LandauElement,
+  Component,
   Rotate,
   Translate,
   Scale,
@@ -14,7 +14,7 @@ const {ChamfCube, MirrorCopy} = require('./gdm_utils');
 
 const config = require('./config');
 
-class CableChainBarrel extends LandauElement {
+class CableChainBarrel extends Component {
   constructor(props) {
     super(props);
     this.height = config.cable_chain_height;
@@ -23,7 +23,7 @@ class CableChainBarrel extends LandauElement {
     this.wall = config.cable_chain_wall;
   }
 
-  build() {
+  render() {
     const {width, length, height, wall} = this;
 
     const cube1 = (
@@ -75,7 +75,7 @@ class CableChainBarrel extends LandauElement {
   }
 }
 
-class CableChainMount1 extends LandauElement {
+class CableChainMount1 extends Component {
   constructor() {
     super();
     this.height = config.cable_chain_height;
@@ -87,7 +87,7 @@ class CableChainMount1 extends LandauElement {
     this.printer_slop = config.printer_slop;
   }
 
-  build() {
+  render() {
     const {width, length, height, wall, printer_slop, rotation, bump} = this;
     const part = (
       <Union>
@@ -166,7 +166,7 @@ class CableChainMount1 extends LandauElement {
   }
 }
 
-class CableChainMount2 extends LandauElement {
+class CableChainMount2 extends Component {
   constructor() {
     super();
     this.height = config.cable_chain_height;
@@ -178,7 +178,7 @@ class CableChainMount2 extends LandauElement {
     this.printer_slop = config.printer_slop;
   }
 
-  build() {
+  render() {
     const {width, length, height, wall, printer_slop, rotation, bump} = this;
     const part = (
       <Union>
@@ -212,14 +212,14 @@ class CableChainMount2 extends LandauElement {
             ))}
           </Translate>
             {/*
-         			//
-         			translate([0, l/2, h]) {
-         				for (ang = [5:10:45]) {
-         					scale([1, sin(ang), cos(ang)])
+              //
+              translate([0, l/2, h]) {
+                for (ang = [5:10:45]) {
+                  scale([1, sin(ang), cos(ang)])
                     xrot(45)
                       cube(size=[w+2, h/2*sqrt(2), h/2*sqrt(2)], center=true);
-         				}
-         			}
+                }
+              }
             */}
         </Difference>
       </Union>

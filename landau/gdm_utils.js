@@ -1,6 +1,6 @@
 const Landau = require('@landaujs/landau');
 const {
-  LandauElement,
+  Component,
   Rotate,
   Translate,
   Scale,
@@ -11,7 +11,7 @@ const {
   Polyhedron,
 } = require('@landaujs/landau');
 
-class ChamfCube extends LandauElement {
+class ChamfCube extends Component {
   constructor(props) {
     super(props);
     this.props.size = this.props.size || [1,1,1];
@@ -20,7 +20,7 @@ class ChamfCube extends LandauElement {
     this.props.chamfcorners = this.props.chamfcorners || true;
   }
 
-  build() {
+  render() {
     const {size, chamfer, chamfaxes, chamfcorners} = this.props;
     const ch_width = Math.sqrt(2) * chamfer;
 
@@ -131,7 +131,7 @@ class ChamfCube extends LandauElement {
   }
 }
 
-class MirrorCopy extends LandauElement {
+class MirrorCopy extends Component {
   constructor(props) {
     super(props);
     this.props.normal = this.props.normal || [0,0,1];
@@ -141,7 +141,7 @@ class MirrorCopy extends LandauElement {
     const mirror = (<Mirror normal={this.props.normal} children={this.props.children} />);
     return (
       <Union children={[...this.props.children, mirror]} />
-    ).render();
+    );
   }
 }
 

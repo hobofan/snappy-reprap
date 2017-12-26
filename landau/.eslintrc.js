@@ -2,7 +2,17 @@ module.exports = {
     // "parserOptions": {
     //   "ecmaVersion": 6,
     // },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
     "parser": "babel-eslint",
+    "plugins": [
+      "react"
+    ],
     "env": {
         "browser": true,
         "commonjs": true
@@ -24,6 +34,7 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "react/jsx-uses-vars": "error",
     }
 };
